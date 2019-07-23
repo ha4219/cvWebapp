@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form method="POST" class="post-form" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="save btn btn-default">save</button>
+</form>
+
+{% if upload_file_url %}
+<img src="{{ upload_file_url }}">
+<p>File uploaded at: <a href="{{ upload_file_url }}">
+    {{ upload_file_url }}
+</a></p>
+{% endif %}
+
+<p><a href="{% url 'uimage' %}">Return to home</a></p>
+</body>
+</html>
